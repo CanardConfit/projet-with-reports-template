@@ -4,4 +4,6 @@ COPY build_reports.sh .
 
 RUN apk add --update git
 
-CMD [ "bash", "build_reports.sh", "true" ]
+RUN chmod +x build_reports.sh
+
+CMD [ "./build_reports.sh", "true" ]
