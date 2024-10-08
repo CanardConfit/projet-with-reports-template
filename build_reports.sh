@@ -10,6 +10,8 @@ if [ -z "$CI_COMMIT_BEFORE_SHA" ] || [ "$CI_COMMIT_BEFORE_SHA" = "00000000000000
     FORCE_REBUILD="true"
 fi
 
+pwd
+
 echo "Building (Force=$FORCE_REBUILD)..."
 
 for dir in Labo*/; do
