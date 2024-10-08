@@ -5,6 +5,11 @@ PDFOPTIONS="--highlight-style kate --pdf-engine xelatex --number-sections"
 
 FORCE_REBUILD="${FORCE_REBUILD:-false}"
 
+if [ -z "$CI_COMMIT_BEFORE_SHA" ] || [ "$CI_COMMIT_BEFORE_SHA" = "0000000000000000000000000000000000000000" ]; then
+    echo "CI_COMMIT_BEFORE_SHA invalid, Force rebuild."
+    FORCE_REBUILD="true"
+fi
+
 echo "Building (Force=$FORCE_REBUILD)..."
 
 for dir in Labo*/; do
