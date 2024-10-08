@@ -3,8 +3,12 @@
 OPTIONS="--toc --filter=pandoc-plot --filter=pandoc-numbering --filter=pandoc-crossref"
 PDFOPTIONS="--highlight-style kate --pdf-engine xelatex --number-sections"
 
+FORCE_REBUILD="${FORCE_REBUILD:-false}"
+
+echo "Building (Force=$FORCE_REBUILD)..."
+
 for dir in Labo*/; do
-    if [ "$1" = "true" ] || git diff --name-only "$CI_COMMIT_BEFORE_SHA" "$CI_COMMIT_SHA" | grep -q "^${dir}rapport.md$"; then
+    if [ "$FORCE_REBUILD" = "true" ] || git diff --name-only "$CI_COMMIT_BEFORE_SHA" "$CI_COMMIT_SHA" | grep -q "^${dir}rapport.md$"; then
         echo "Building report in ${dir}"
         cd "${dir}" || exit
 

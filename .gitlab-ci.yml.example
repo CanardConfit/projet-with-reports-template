@@ -1,16 +1,8 @@
-image: canardconfit/project-with-reports-template:latest
-
-variables:
-  GIT_SUBMODULE_STRATEGY: recursive
-
 build_reports:
+  image: canardconfit/project-with-reports-template:latest
   script:
-    - |
-      if [ "$CI_PIPELINE_SOURCE" == "web" ]; then
-        ./build_reports.sh true
-      else
-        ./build_reports.sh false
-      fi
+    - export FORCE_REBUILD=$( [ "$CI_PIPELINE_SOURCE" == "web" ] && echo "true" || echo "false" )
+    - ./build_reports.sh $FORCE_REBUILD
   artifacts:
     paths:
       - "*.pdf"

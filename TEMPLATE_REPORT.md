@@ -1,7 +1,7 @@
 ---
 author:
- - Tom Andrivet
-title: "Labo 2 - Bootloaders"
+ - CanardConfit
+title: "Example report"
 autoSectionLabels: true
 autoEqnLabels: true
 eqnPrefix: 
@@ -20,6 +20,6 @@ pandoc-numbering:
 urlcolor: blue
 ---
 
-# Ceci est un test de page
+# Template
 
-Blablabla
+This is a template.
