@@ -4,7 +4,7 @@ GIT_REPO_PATH="${GIT_REPO_PATH}"
 FORCE_REBUILD="${FORCE_REBUILD:-false}"
 
 if [ -z "$GIT_REPO_PATH" ]; then
-    echo "Error: Git repository path must be set in the GIT_REPO_PATH environment variable."
+    echo "Error: Git repository path ($GIT_REPO_PATH) must be set in the GIT_REPO_PATH environment variable."
     exit 1
 fi
 
