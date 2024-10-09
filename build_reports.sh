@@ -1,7 +1,7 @@
 #!/bin/bash
 
-GIT_REPO_PATH="$1"
-FORCE_REBUILD="$2"
+GIT_REPO_PATH="$2"
+FORCE_REBUILD="$3"
 
 if [ -z "$GIT_REPO_PATH" ]; then
     echo "Error: Git repository path must be provided as an argument."
