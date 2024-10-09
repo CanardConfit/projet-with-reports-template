@@ -1,14 +1,12 @@
 #!/bin/bash
 
-GIT_REPO_PATH="$2"
-FORCE_REBUILD="$3"
+GIT_REPO_PATH="${GIT_REPO_PATH}"
+FORCE_REBUILD="${FORCE_REBUILD:-false}"
 
 if [ -z "$GIT_REPO_PATH" ]; then
-    echo "Error: Git repository path must be provided as an argument."
+    echo "Error: Git repository path must be set in the GIT_REPO_PATH environment variable."
     exit 1
 fi
-
-FORCE_REBUILD="${FORCE_REBUILD:-false}"
 
 OPTIONS="--toc --filter=pandoc-plot --filter=pandoc-numbering --filter=pandoc-crossref"
 PDFOPTIONS="--highlight-style kate --pdf-engine xelatex --number-sections"
@@ -21,13 +19,13 @@ fi
 echo "GIT_REPO_PATH: $GIT_REPO_PATH"
 echo "FORCE_REBUILD: $FORCE_REBUILD"
 
-echo "Current directory before change: $(pwd)"
+echo "Current directory: $(pwd)"
 
 cd "$GIT_REPO_PATH" || exit 1
 
-echo "Current directory after change: $(pwd)"
+echo "Current directory: $(pwd)"
 
-echo "Building (Force=$FORCE_REBUILD)..."
+echo "Building..."
 
 for dir in Labo*/; do
     if [ "$FORCE_REBUILD" = "true" ] || git diff --name-only "$CI_COMMIT_BEFORE_SHA" "$CI_COMMIT_SHA" -- "${dir}rapport.md" | grep -q "."; then
