@@ -2,7 +2,7 @@ build_reports:
   image: canardconfit/projet-with-reports-template:latest
   script:
     - export FORCE_REBUILD=$( [ "$CI_PIPELINE_SOURCE" == "web" ] && echo "true" || echo "false" )
-    - ./build_reports.sh $FORCE_REBUILD
+    - ./build_reports.sh
   artifacts:
     paths:
       - "*.pdf"
