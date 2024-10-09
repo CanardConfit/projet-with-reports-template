@@ -8,4 +8,4 @@ RUN chmod +x build_reports.sh
 
 ENV FORCE_REBUILD=false
 
-ENTRYPOINT [ "bash", "build_reports.sh" ]
+ENTRYPOINT [ "./data/build_reports.sh" ]
