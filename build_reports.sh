@@ -6,19 +6,17 @@ FORCE_REBUILD="${FORCE_REBUILD:-false}"
 OPTIONS="--toc --filter=pandoc-plot --filter=pandoc-numbering --filter=pandoc-crossref"
 PDFOPTIONS="--highlight-style kate --pdf-engine xelatex --number-sections"
 
+cd "$GIT_REPO_PATH" || exit 1
+
 if [ -z "$CI_COMMIT_BEFORE_SHA" ] || [ "$CI_COMMIT_BEFORE_SHA" = "0000000000000000000000000000000000000000" ]; then
     echo "CI_COMMIT_BEFORE_SHA invalid, forcing rebuild."
     FORCE_REBUILD="true"
 fi
 
+echo "Current directory: $(pwd)"
+
 echo "GIT_REPO_PATH: $GIT_REPO_PATH"
 echo "FORCE_REBUILD: $FORCE_REBUILD"
-
-echo "Current directory: $(pwd)"
-
-cd "$GIT_REPO_PATH" || exit 1
-
-echo "Current directory: $(pwd)"
 
 echo "Building..."
 
