@@ -1,4 +1,4 @@
-FROM omalaspinas/c_pandoc:latest
+FROM pandoc/core:latest
 
 COPY build_reports.sh .
 

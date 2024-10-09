@@ -1,8 +1,10 @@
 build_reports:
   image: canardconfit/projet-with-reports-template:latest
   script:
+    - cd "$CI_PROJECT_DIR"
     - export FORCE_REBUILD=$( [ "$CI_PIPELINE_SOURCE" == "web" ] && echo "true" || echo "false" )
-    - ./build_reports.sh
+    - export GIT_REPO_PATH="$CI_PROJECT_DIR"
+    - sh /data/build_reports.sh
   artifacts:
     paths:
       - "*.pdf"
