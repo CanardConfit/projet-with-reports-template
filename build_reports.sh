@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 GIT_REPO_PATH="${GIT_REPO_PATH:-/build}"
 FORCE_REBUILD="${FORCE_REBUILD:-false}"
