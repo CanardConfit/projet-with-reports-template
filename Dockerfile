@@ -9,4 +9,4 @@ RUN chmod +x build_reports.sh
 ENV GIT_REPO_PATH="/build"
 ENV FORCE_REBUILD=false
 
-ENTRYPOINT [ "sh" ]
+ENTRYPOINT [ "/bin/sh", "-c", "/bin/sh" ]
