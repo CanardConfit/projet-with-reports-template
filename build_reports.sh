@@ -3,8 +3,12 @@
 GIT_REPO_PATH="${GIT_REPO_PATH:-/build}"
 FORCE_REBUILD="${FORCE_REBUILD:-false}"
 
-OPTIONS="--toc --filter=pandoc-plot --filter=pandoc-numbering --filter=pandoc-crossref"
+OPTIONS="--filter=pandoc-plot --filter=pandoc-numbering --filter=pandoc-crossref"
 PDFOPTIONS="--highlight-style kate --pdf-engine xelatex --number-sections"
+
+if [ -z "$NO_TOC" ] || [ "$NO_TOC" = "false" ]; then
+    OPTIONS="$OPTIONS --toc"
+fi
 
 cd "$GIT_REPO_PATH" || exit 1
 
