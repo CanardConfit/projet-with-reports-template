@@ -3,7 +3,7 @@
 GIT_REPO_PATH="${GIT_REPO_PATH:-/build}"
 FORCE_REBUILD="${FORCE_REBUILD:-false}"
 
-OPTIONS="--filter=pandoc-plot --filter=pandoc-numbering --filter=pandoc-crossref"
+OPTIONS="--filter=pandoc-plot --filter=pandoc-numbering --filter=pandoc-crossref -H /data/disable_float_image.tex"
 PDFOPTIONS="--highlight-style kate --pdf-engine xelatex --number-sections"
 
 if [ -z "$NO_TOC" ] || [ "$NO_TOC" = "false" ]; then

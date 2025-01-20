@@ -1,6 +1,7 @@
 FROM omalaspinas/c_pandoc:latest
 
 COPY build_reports.sh .
+COPY disable_float_image.tex .
 
 RUN apk add --update git
 

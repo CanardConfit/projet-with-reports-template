@@ -1,0 +1,8 @@
+\usepackage{float}
+\let\origfigure\figure
+\let\endorigfigure\endfigure
+\renewenvironment{figure}[1][2] {
+    \expandafter\origfigure\expandafter[H] % TODO: pandoc-crossref not working correctly with mardown's metadata parameters
+} {
+    \endorigfigure
+}
